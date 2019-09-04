@@ -16,3 +16,12 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    
+    Route::post('/funcionarios/create','ControllerUsuario@registrarUsuario');
+    Route::post('/funcionarios/update','ControllerUsuario@alterarUsario');
+    Route::post('funcionarios/destroy','ControllerUsuario@excluirUsuario');
+    Route::get('/funcionarios/list','ControllerUsuario@getUsuariosGeral');
+    Route::get('/funcionarios/show/id','ControllerUsuario@getUsuarioID');
+});
